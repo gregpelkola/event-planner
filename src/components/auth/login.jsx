@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, TextField, Container, Typography } from '@material-ui/core';
+import '../../styles/Auth.css';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -9,13 +10,13 @@ const Login = () => {
     };
 
     return (
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="xs" className="auth-container">
             <div>
                 <Typography component="h1" variant="h5">
                     Sign In
                 </Typography>
-                <form noValidate>
-                    <textField
+                <form className="auth-form" noValidate>
+                    <TextField
                     variant="outlined"
                     margin="normal"
                     required
@@ -46,6 +47,7 @@ const Login = () => {
                     fullWidth
                     variant="contained"
                     color="primary"
+                    className="auth-button"
                     onClick={handleLogin}
                     >
                     Sign In

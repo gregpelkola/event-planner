@@ -5,7 +5,11 @@ import { Container, Typography } from '@material-ui/core';
 
 const eventDetail = () => {
     const { id } = useParams();
-    const event = useSelector((state) => state.events.find((e) => e.id === id));
+    const event = useSelector((state) => state.events.find((e) => e.id === parseInt(id)));
+
+    if(!event) {
+        return <Typography variant="h6">Event not found</Typography>
+    }
 
     return (
         <Container component="main" maxWidth="md">

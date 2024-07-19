@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Button, TextField, Container, Typography } from '@material-ui/core';
 import { addEvent } from '../../actions/eventActions';
+import "../../styles/Events.css";
 
 const AddEvent = () => {
     const [title, setTitle] = useState('');
@@ -17,12 +18,12 @@ const AddEvent = () => {
     };
 
     return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" className="event-container">
         <div>
             <Typography component="h1" variant="h5">
                 Add Event
             </Typography>
-            <form noValidate>
+            <form className="event-form" noValidate>
                 <TextField
                     variant="outlined"
                     margin="normal"
@@ -93,6 +94,7 @@ const AddEvent = () => {
                     fullWidth
                     variant="contained"
                     color="primary"
+                    className="event-button"
                     onClick={handleAddEvent}
                 >
                     Add Event

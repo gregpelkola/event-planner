@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, TextField, Container, Typography } from '@material-ui/core';
+import '../../styles/Auth.css';
 
 const Register = () => {
     const [email, setEmail] = useState('');
@@ -10,12 +11,12 @@ const Register = () => {
     };
 
     return (
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="xs" className="auth-container">
             <div>
                 <Typography component="h1" variant="h5">
                     Register
                 </Typography>
-                <form noValidate>
+                <form className="auth-form" noValidate>
                     <TextField
                         variant="outlined"
                         margin="normal"
@@ -47,6 +48,7 @@ const Register = () => {
                         fullWidth
                         variant="contained"
                         color="primary"
+                        className="auth-button"
                         onClick={handleRegister}
                     >
                         Register

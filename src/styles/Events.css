@@ -1,0 +1,13 @@
+.event-container {
+    margin-top: 50px;
+}
+
+.event-form {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.event-button {
+    margin-top: 20px;
+}
