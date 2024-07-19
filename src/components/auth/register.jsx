@@ -1,13 +1,42 @@
 import React, { useState } from 'react';
 import { Button, TextField, Container, Typography } from '@material-ui/core';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate instead of useHistory
 import '../../styles/Auth.css';
 
 const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate(); // Initialize useNavigate
 
-    const handleRegister = () => {
+    const handleRegister = async (e) => {
+        e.preventDefault();
+        const userData = { email, password }; // Create userData object
+        fetch('http://localhost:8000/api/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userData),
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to register: ${response.statusText}`);
+            }
+            return response.json(); // Parse JSON response
+        })
+        .then(data => {
+            console.log('Registration successful', data);
+            navigate('/login'); // Navigate on success
+        })
+        .catch((error) => {
+            console.error('Registration failed:', error);
+        });
 
+        registerUser({
+            email: 'newuser',
+            password: 'password123',
+            
+        });
     };
 
     return (
